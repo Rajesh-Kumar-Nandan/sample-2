@@ -1,0 +1,188 @@
+
+main.topic {
+  width: 90%;
+  max-width: 860px;
+  margin: 50px auto 60px auto; /* Horizontally centered */
+  padding: 44px 48px;
+  background: var(--card-bg, rgba(38, 16, 30, 0.78));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border, rgba(237, 184, 139, 0.25));
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  line-height: 1.7;
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+/* Typography */
+main.topic h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--color-blush, #fad8d6);
+  border-bottom: 2px solid var(--color-berry, #991265);
+  padding-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+main.topic h1:first-of-type {
+  margin-top: 0;
+}
+
+main.topic h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--color-peach, #edb88b);
+  margin-top: 36px;
+  margin-bottom: 14px;
+}
+
+main.topic h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-teal, #17bebb);
+  margin-top: 22px;
+  margin-bottom: 6px;
+}
+
+main.topic h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-terracotta, #cd5334);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+main.topic p {
+  color: var(--color-blush, #fad8d6);
+  font-size: 0.98rem;
+  margin-bottom: 12px;
+}
+
+main.topic p b {
+  color: #ffffff;
+}
+
+main.topic a {
+  color: var(--color-teal, #17bebb);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+main.topic a:hover {
+  text-decoration: underline;
+  color: #5ce4e1;
+}
+
+/* =========================================================
+   1. Roles & Responsibility Lists (Standard Paragraph Bullets)
+   ========================================================= */
+main.topic h4 + ul.topic {
+  list-style: none;
+  margin: 12px 0 26px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+main.topic h4 + ul.topic li {
+  display: flex;
+  align-items: flex-start; /* Arrow aligns with top line of text */
+  gap: 12px;
+  color: var(--color-blush, #fad8d6);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: transparent;
+  border: none;
+  padding: 0;
+  min-height: unset;
+  border-radius: 0;
+}
+
+main.topic h4 + ul.topic li::before {
+  content: "→";
+  color: var(--color-terracotta, #cd5334);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   2. App & Tool Lists (Centered-Arrow Badges)
+   ========================================================= */
+main.topic p + ul.topic,
+main.topic h3 + ul.topic {
+  list-style: none;
+  margin: 14px 0 24px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+main.topic p + ul.topic li,
+main.topic h3 + ul.topic li {
+  display: flex;
+  align-items: center; /* Arrow and label vertically centered together */
+  gap: 10px;
+  background: rgba(153, 18, 101, 0.15);
+  border: 1px solid var(--card-border, rgba(237, 184, 139, 0.25));
+  padding: 12px 16px;
+  border-radius: 10px;
+  min-height: 48px;
+  color: var(--color-blush, #fad8d6);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+main.topic p + ul.topic li::before,
+main.topic h3 + ul.topic li::before {
+  content: "→";
+  color: var(--color-teal, #17bebb);
+  font-weight: bold;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+main.topic p + ul.topic li:hover,
+main.topic h3 + ul.topic li:hover {
+  background: rgba(23, 190, 187, 0.18);
+  border-color: var(--color-teal, #17bebb);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   Mobile View (<= 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+  main.topic {
+    width: 92%;
+    margin: 30px auto 40px auto;
+    padding: 28px 20px;
+  }
+
+  main.topic h1 {
+    font-size: 1.65rem;
+  }
+
+  main.topic h2 {
+    font-size: 1.25rem;
+  }
+
+  main.topic p + ul.topic,
+  main.topic h3 + ul.topic {
+    grid-template-columns: 1fr;
+  }
+}
